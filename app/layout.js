@@ -1,7 +1,22 @@
+import localFont from '@next/font/local'
 import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const pxGrotesk = localFont({
+  src: [
+    {
+      path: '../public/fonts/PxGrotesk-italic.woff2',
+      style: 'italic'
+    },
+    {
+      path: '../public/fonts/PxGrotesk.woff2',
+    }
+  ],
+  variable: '--font-pxGrotesk'
+})
+
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +26,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${pxGrotesk.className} bg-white w-full h-full`}>{children}</body>
     </html>
   );
 }
